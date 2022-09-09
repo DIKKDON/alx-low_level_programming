@@ -1,4 +1,3 @@
-#!/bin/bash
 /*
  *
  *  * File: 5-printf.c
