@@ -1,21 +1,31 @@
-
+#include "main.h"
 
 /**
- * _strncat - multiplies two digits
- * @dest: 1st digit in the multiplication
- * @src: 2nd digit to be multiplied
- * @n: 2nd digit to be multiplied
- * Description: multiplies two digits
- * Return: the result of the multiplication
+ * _strncat - concatenates n bytes from a string to another
+ * @dest: destination string
+ * @src: source string
+ * @n: number of bytes of str to concatenate
+ *
+ * Return: a pointer to the resulting string dest
  */
 char *_strncat(char *dest, char *src, int n)
 {
 	int i, j;
 
-	i = j = 0;
-	while (dest[i] != '\0') /* find end of dest */
+	i = 0;
+	j = 0;
+
+	while (dest[i] != '\0')
 		i++;
-	while ((dest[i++] = src[j++]) != '\0' && j !=  n) /* copy src */
-		;
+
+	while (src[j] != '\0' && j < n)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+
+	dest[i] = '\0';
+
 	return (dest);
 }
