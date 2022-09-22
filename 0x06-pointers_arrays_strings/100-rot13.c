@@ -1,22 +1,29 @@
 #include "main.h"
 
 /**
- * rot13 - multiplies two digits
- * @str: 1st digit in the multiplication
- * Description: multiplies two digits
- * Return: the result of the multiplication
+ * rot13 - encodes a string in rot13
+ * @s: string to be encoded
+ *
+ * Return: the resulting string
  */
-char *rot13(char *str)
+char *rot13(char *s)
 {
-	int i = 0;
+	int i, j;
 
-	while (str[i] != '\0')
+	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		str[i] = str[i] + 13;
-
-		if (str[i] > 'z')
-			str[i] = str[((str[i] - 'z') + 'a') - 1];
-		i++;
+		for (j = 0; a[j] != '\0'; j++)
+		{
+			if (s[i] == a[j])
+			{
+				s[i] = b[j];
+				break;
+			}
+		}
 	}
-	return (str);
+
+	return (s);
 }
