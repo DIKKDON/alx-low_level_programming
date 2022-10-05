@@ -1,1 +1,1 @@
-solutions to alx 0x09.C-Static Libraries
+alx solution to0x09.C -Static libraries
